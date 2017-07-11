@@ -1,0 +1,48 @@
+package:
+  name: pyfftw
+  version: "0.10.4"
+
+source:
+  url: https://pypi.python.org/packages/c2/2e/b25edc6960fc837e915eb1b38e5f0e3013e32e90aff14a1d0f4556b3d145/pyFFTW-0.10.4.tar.gz
+  md5: 7fb59450308881bb48d9f178947d950e
+#  patches:
+   # List any patch files here
+   # - fix.patch
+
+# build:
+  # noarch_python: True
+  # preserve_egg_dir: True
+  # entry_points:
+    # Put any entry points (scripts to be generated automatically) here. The
+    # syntax is module:function.  For example
+    #
+    # - pysndfile = pysndfile:main
+    #
+    # Would create an entry point called pysndfile that calls pysndfile.main()
+
+
+  # If this is a new build for the same version, increment the build
+  # number. If you do not include this key, it defaults to 0.
+  # number: 0
+
+requirements:
+  build:
+    - python
+    - setuptools
+    - cython
+    - numpy 1.12*
+    
+  run:
+    - python
+    - numpy 1.12*
+
+
+about:
+  home: https://pypi.python.org/pypi/pyFFTW, http://http://www.fftw.org
+  license: GNU General Public License (GPL)
+  summary: 'pyfftw provides an interface to fftw3 the'
+  license_family: GPL
+
+# See
+# http://docs.continuum.io/conda/build.html for
+# more information about meta.yaml

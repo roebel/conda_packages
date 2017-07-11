@@ -1,0 +1,17 @@
+package:
+   name: easdif
+   version: 1.4.25
+
+build:
+   number: 1
+
+requirements:
+   build:
+      - python
+      - numpy 1.12*
+      - cython
+    
+about:
+  home: https://sourceforge.net/projects/sdif/files/Easdif/
+  license: LGPL
+
