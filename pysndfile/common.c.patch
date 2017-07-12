@@ -1,0 +1,19 @@
+*** src/common.c	2017-04-02 08:33:16.000000000 +0200
+--- src/common-fixed.c	2017-07-12 14:27:38.000000000 +0200
+***************
+*** 677,683 ****
+  					size = strlen (strptr) + 1 ;
+  					size += (size & 1) ;
+  
+! 					if (psf->header.indx + (sf_count_t) size >= psf->header.len && psf_bump_header_allocation (psf, 16))
+  						return count ;
+  
+  					if (psf->rwf_endian == SF_ENDIAN_BIG)
+--- 677,683 ----
+  					size = strlen (strptr) + 1 ;
+  					size += (size & 1) ;
+  
+! 					if (psf->header.indx + (sf_count_t) size >= psf->header.len && psf_bump_header_allocation (psf, size))
+  						return count ;
+  
+  					if (psf->rwf_endian == SF_ENDIAN_BIG)

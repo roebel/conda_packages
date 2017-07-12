@@ -1,8 +1,9 @@
 #!/bin/bash
 
-curl http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.28.tar.gz -o libsndfile-1.0.28.tar.gz
-tar -xvzf libsndfile-1.0.28.tar.gz
-cd libsndfile-1.0.28
+#curl http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.28.tar.gz -o libsndfile-1.0.28.tar.gz
+#tar -xvzf libsndfile-1.0.28.tar.gz
+#cd libsndfile-1.0.28
+cd libsndfile-src
 configure --disable-external-libs --prefix=$PREFIX
 make
 make install

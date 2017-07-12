@@ -1,18 +1,17 @@
 #!/bin/bash
 
-curl http://www.fftw.org/fftw-3.3.6-pl2.tar.gz -o fftw-3.3.6-pl2.tar.gz
-tar -xvzf fftw-3.3.6-pl2.tar.gz
-cd fftw-3.3.6-pl2
-configure  --prefix=$PREFIX  --enable-threads --disable-fortran
+cd fftw-src
+unset CFLAGS
+unset LD_FLAGS
+configure  --prefix=$PREFIX  --enable-shared --enable-long-double --enable-threads --disable-fortran
 make
 make install
-configure  --prefix=$PREFIX --enable-single --enable-threads --disable-fortran
+configure  --prefix=$PREFIX  --enable-shared --enable-single --enable-threads --disable-fortran --enable-sse --enable-avx 
 make
 make install
-configure  --prefix=$PREFIX --enable-long-double --enable-threads --disable-fortran
+configure  --prefix=$PREFIX  --enable-shared --enable-threads --disable-fortran --enable-sse2 --enable-avx 
 make
 make install
-
 cd ..
 
 $PYTHON setup.py build_ext --include-dirs=$PREFIX/include --library-dirs=$PREFIX/lib

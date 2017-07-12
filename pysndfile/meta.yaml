@@ -3,14 +3,18 @@ package:
   version: "0.2.13"
 
 source:
-  fn: pysndfile-0.2.13.tar.gz
-  url: https://pypi.python.org/packages/04/0f/194319d4dcee6b4b52ba3809894764395b8f1f7e52d948dfe39712d8ded5/pysndfile-0.2.13.tar.gz
-  md5: 6142ef7174d5af7e0b14057b031969ce
-#  patches:
-   # List any patch files here
+   - url: https://pypi.python.org/packages/04/0f/194319d4dcee6b4b52ba3809894764395b8f1f7e52d948dfe39712d8ded5/pysndfile-0.2.13.tar.gz
+     fn: pysndfile-0.2.13.tar.gz
+     md5: 6142ef7174d5af7e0b14057b031969ce
+     
+   - url: http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.28.tar.gz
+     fn: libsndfile-1.0.28.tar.gz
+     folder: libsndfile-src
+     patches:
+        - common.c.patch
    # - fix.patch
 
-# build:
+build:
   # noarch_python: True
   # preserve_egg_dir: True
   # entry_points:
@@ -24,18 +28,18 @@ source:
 
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
-  # number: 1
+  number: 1
 
 requirements:
   build:
     - python
     - setuptools
     - cython
-    - numpy 1.12*
+    - numpy  >=1.12.0
     
   run:
     - python
-    - numpy 1.12*
+    - numpy  >=1.12.0
 
 test:
   # Python imports

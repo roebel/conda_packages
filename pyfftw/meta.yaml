@@ -3,13 +3,16 @@ package:
   version: "0.10.4"
 
 source:
-  url: https://pypi.python.org/packages/c2/2e/b25edc6960fc837e915eb1b38e5f0e3013e32e90aff14a1d0f4556b3d145/pyFFTW-0.10.4.tar.gz
-  md5: 7fb59450308881bb48d9f178947d950e
-#  patches:
-   # List any patch files here
-   # - fix.patch
+ - url: https://pypi.python.org/packages/c2/2e/b25edc6960fc837e915eb1b38e5f0e3013e32e90aff14a1d0f4556b3d145/pyFFTW-0.10.4.tar.gz
+   md5: 7fb59450308881bb48d9f178947d950e
+   fn: pyFFTW-0.10.4.tar.gz
+   
+ - url: http://www.fftw.org/fftw-3.3.6-pl2.tar.gz
+   fn: fftw-3.3.6-pl2.tar.gz
+   folder : fftw-src
+ 
 
-# build:
+build:
   # noarch_python: True
   # preserve_egg_dir: True
   # entry_points:
@@ -23,19 +26,18 @@ source:
 
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
-  # number: 0
+  number: 2
 
 requirements:
   build:
     - python
     - setuptools
     - cython
-    - numpy 1.12*
+    - numpy  >=1.12.0
     
   run:
     - python
-    - numpy 1.12*
-
+    - numpy >=1.12.0
 
 about:
   home: https://pypi.python.org/pypi/pyFFTW, http://http://www.fftw.org
