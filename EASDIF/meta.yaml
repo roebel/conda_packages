@@ -10,8 +10,10 @@ requirements:
       - python
       - numpy >=1.12.0
       - cython
+      - swig
+      - cmake
 
-   run:
+   Run:
       - python
       - numpy >=1.12.0
 
