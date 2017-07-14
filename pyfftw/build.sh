@@ -3,13 +3,13 @@
 cd fftw-src
 unset CFLAGS
 unset LD_FLAGS
-configure  --prefix=$PREFIX  --enable-shared --enable-long-double --enable-threads --disable-fortran
+./configure  --prefix=$PREFIX  --enable-shared --enable-long-double --enable-threads --disable-fortran
 make
 make install
-configure  --prefix=$PREFIX  --enable-shared --enable-single --enable-threads --disable-fortran --enable-sse --enable-avx 
+./configure  --prefix=$PREFIX  --enable-shared --enable-single --enable-threads --disable-fortran --enable-sse --enable-avx 
 make
 make install
-configure  --prefix=$PREFIX  --enable-shared --enable-threads --disable-fortran --enable-sse2 --enable-avx 
+./configure  --prefix=$PREFIX  --enable-shared --enable-threads --disable-fortran --enable-sse2 --enable-avx 
 make
 make install
 cd ..
