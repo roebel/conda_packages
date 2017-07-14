@@ -3,6 +3,7 @@
 export CVSROOT=:ext:@sdif.cvs.sourceforge.net:/cvsroot/sdif/
 cvs -z3 -d:pserver:anonymous:@sdif.cvs.sourceforge.net:/cvsroot/sdif co -P EASDIF_SDIF 
 
+echo $CONDA_NPY
 mkdir -p build_easdif
 cd build_easdif
 cmake ../EASDIF_SDIF -DPYTHON:PATH=python3 -DEASDIF_DO_PYTHON:bool=on

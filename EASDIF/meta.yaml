@@ -8,14 +8,14 @@ build:
 requirements:
    build:
       - python
-      - numpy >=1.12.0
+      - numpy >=1.12.0,<1.13.0
       - cython
       - swig
       - cmake
 
    Run:
       - python
-      - numpy >=1.12.0
+      - numpy >=1.12.0,<1.13.0
 
 about:
   home: https://sourceforge.net/projects/sdif/files/Easdif/
