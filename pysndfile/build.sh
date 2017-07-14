@@ -4,7 +4,7 @@
 #tar -xvzf libsndfile-1.0.28.tar.gz
 #cd libsndfile-1.0.28
 cd libsndfile-src
-configure --disable-external-libs --prefix=$PREFIX
+./configure --disable-external-libs --prefix=$PREFIX
 make
 make install
 cd ..
