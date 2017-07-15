@@ -16,9 +16,9 @@ upload_all: upload_easdif upload_pyfftw upload_pysndfile
 # only used for initialisation when compilation has already been done manually
 create_links:
 	@mkdir -p last_builds
-	@file=$(shell ls -lrt $(conda_build_dir)/*easdif*$(NUMPYSTR)* 2>/dev/null |tail -1| rev| cut -f1 -d" "| rev); if [ "$$file" = "" ]; then rm -f last_builds/easdif_$(NUMPYSTR); else ln -sf  $$file last_builds/easdif_$(NUMPYSTR); echo updated to $$file; fi
-	@file=$(shell ls -lrt $(conda_build_dir)/*pysndfile*$(NUMPYSTR)* 2>/dev/null |tail -1| rev| cut -f1 -d" "| rev); if [  "$$file" = "" ]; then rm -f last_builds/pysndfile_$(NUMPYSTR); else  ln -sf $$file last_builds/pysndfile_$(NUMPYSTR); echo updated to $$file;  fi
-	@file=$(shell ls -lrt $(conda_build_dir)/*pyfftw*$(NUMPYSTR)* 2>/dev/null |tail -1| rev| cut -f1 -d" "| rev); if [ "$$file" = "" ]; then rm -f last_builds/pyfftw_$(NUMPYSTR);  else ln -sf $$file last_builds/pyfftw_$(NUMPYSTR); echo updated to $$file; fi
+	@file=$$(ls -lrt $(conda_build_dir)/*easdif*$(NUMPYSTR)* 2>/dev/null |tail -1| rev| cut -f1 -d" "| rev); if [ "$$file" = "" ]; then rm -f last_builds/easdif_$(NUMPYSTR); else ln -sf  $$file last_builds/easdif_$(NUMPYSTR); echo updated to $$file; fi
+	@file=$$(ls -lrt $(conda_build_dir)/*pysndfile*$(NUMPYSTR)* 2>/dev/null |tail -1| rev| cut -f1 -d" "| rev); if [  "$$file" = "" ]; then rm -f last_builds/pysndfile_$(NUMPYSTR); else  ln -sf $$file last_builds/pysndfile_$(NUMPYSTR); echo updated to $$file;  fi
+	@file=$$(ls -lrt $(conda_build_dir)/*pyfftw*$(NUMPYSTR)* 2>/dev/null |tail -1| rev| cut -f1 -d" "| rev); if [ "$$file" = "" ]; then rm -f last_builds/pyfftw_$(NUMPYSTR);  else ln -sf $$file last_builds/pyfftw_$(NUMPYSTR); echo updated to $$file; fi
 
 
 upload_pysndfile: build_pysndfile
