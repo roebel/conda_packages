@@ -6,6 +6,7 @@ NUMPYSTR=np$(shell echo $(NUMPY) | sed -e s/[.]//g)
 conda_path=$(shell type -p conda)
 conda_build_dir=$(shell dirname $(conda_path))/../conda-bld/linux-64
 
+build_all: create_links build_easdif build_pyfftw build_pysndfile
 upload_all: create_links upload_easdif upload_pyfftw upload_pysndfile
 
 create_links:
