@@ -39,6 +39,24 @@ requirements:
     - python
     - numpy x.x
 
+test:
+  # Python imports, check whether import works
+  imports:
+    - pyfftw
+
+  # commands:
+    # You can put test commands to be run here.  Use this to test that the
+    # entry points work.
+
+
+  # You can also put a file called run_test.py in the recipe that will be run
+  # at test time.
+
+  # requires:
+    # Put any additional test requirements here.  For example
+    # - nose
+
+
 about:
   home: https://pypi.python.org/pypi/pyFFTW, http://http://www.fftw.org
   license: GNU General Public License (GPL)
