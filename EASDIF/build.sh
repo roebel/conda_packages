@@ -1,7 +1,6 @@
 #! /bin/bash
 
-export CVSROOT=:ext:@sdif.cvs.sourceforge.net:/cvsroot/sdif/
-cvs -z3 -d:pserver:anonymous:@sdif.cvs.sourceforge.net:/cvsroot/sdif co -P EASDIF_SDIF 
+svn checkout  svn://svn.code.sf.net/p/sdif/code/trunk/Easdif EASDIF_SDIF
 
 echo $CONDA_NPY
 mkdir -p build_easdif

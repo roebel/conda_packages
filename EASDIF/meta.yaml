@@ -1,23 +1,22 @@
 package:
    name: easdif
-   version: 1.4.25
+   version: 1.4.26
 
 build:
-   number: 2
+   number: 0
 
 requirements:
    build:
       - python
-      - numpy x.x
+      - numpy {{ numpy }}.*
       - cython
       - swig
       - cmake
 
    run:
       - python
-      - numpy x.x
+      - numpy {{ numpy }}.*
 
-test:
 test:
   # Python imports
   imports:
