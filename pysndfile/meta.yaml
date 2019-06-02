@@ -13,23 +13,23 @@ source:
      folder: libsndfile-src
      patches:
         - common.c.patch
+        - sfconfig.h.patch
    # - fix.patch
 
 build:
-  # noarch_python: True
-  # preserve_egg_dir: True
-  # entry_points:
-    # Put any entry points (scripts to be generated automatically) here. The
-    # syntax is module:function.  For example
-    #
-    # - pysndfile = pysndfile:main
-    #
-    # Would create an entry point called pysndfile that calls pysndfile.main()
-
-
-  # If this is a new build for the same version, increment the build
-  # number. If you do not include this key, it defaults to 0.
-  number: 0
+   # noarch_python: True
+   # preserve_egg_dir: True
+   # entry_points:
+     # Put any entry points (scripts to be generated automatically) here. The
+     # syntax is module:function.  For example
+     # 
+     # - pysndfile = pysndfile:main
+     #
+     # Would create an entry point called pysndfile that calls pysndfile.main()
+   
+   # If this is a new build for the same version, increment the build
+   # number. If you do not include this key, it defaults to 0.
+   number: 3
 
 requirements:
   build:
@@ -37,7 +37,6 @@ requirements:
     - {{ compiler('cxx') }}
     - setuptools
     - cython
-    - numpy {{ numpy }}
 
   host:
     - python
@@ -45,7 +44,8 @@ requirements:
 
   run:
     - python
-    - numpy {{ numpy }}
+    - numpy x.x
+
 
 test:
   # Python imports
