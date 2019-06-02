@@ -5,7 +5,12 @@ svn checkout  svn://svn.code.sf.net/p/sdif/code/trunk/Easdif EASDIF_SDIF
 echo $CONDA_NPY
 mkdir -p build_easdif
 cd build_easdif
-cmake ../EASDIF_SDIF -DPYTHON:PATH=python3 -DEASDIF_DO_PYTHON:bool=on
+if [ $(uname) = "Linux" ]; then 
+    # avoid c++17 because EASDIF does not work
+    export CXXFLAGS=$(echo $CXXFLAGS| sed -e s/c++17/c++11/g)    
+fi
+cmake ../EASDIF_SDIF -DPYTHON:PATH=${PYTHON}3 -DEASDIF_DO_PYTHON:bool=on
+
 make pythonswig
 make install_python_easdif_module_globally
 #cd ..

@@ -3,19 +3,24 @@ package:
    version: 1.4.26
 
 build:
-   number: 0
+   number: 1
 
 requirements:
    build:
-      - python
-      - numpy {{ numpy }}.*
+      - {{ compiler('c') }}
+      - {{ compiler('cxx') }}
+      - setuptools
       - cython
       - swig
       - cmake
 
+   host:
+      - python
+      - numpy {{ numpy }}
+   
    run:
       - python
-      - numpy {{ numpy }}.*
+      - numpy x.x
 
 test:
   # Python imports
