@@ -8,8 +8,8 @@ cd libsndfile-src
 make
 make install
 cd ..
-$PYTHON setup.py build_ext --sndfile-libdir=$PREFIX/lib --sndfile-incdir=$PREFIX/include
-$PYTHON setup.py install 
+python setup.py build_ext --sndfile-libdir=$PREFIX/lib --sndfile-incdir=$PREFIX/include
+${PYTHON} setup.py install 
 
 # Add more build steps here, if they are necessary.
 
