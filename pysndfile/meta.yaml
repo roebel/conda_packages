@@ -1,11 +1,11 @@
 package:
   name: pysndfile
-  version: "1.3.6"
+  version: "1.3.7"
 
 source:
-   - url: https://files.pythonhosted.org/packages/94/ec/2ec1d8a1478b075c06bfd54e6961c9ef9937956e88ef6ffae894b2dc601e/pysndfile-1.3.6.tar.gz
-     fn: pysndfile-1.3.6.tar.gz
-     sha256: 0593c0682158129244b682406b92a08cc7e0e936784b8197cae3315b2a79de27
+   - url: https://files.pythonhosted.org/packages/06/f5/7266cc792b04e1519cd4e2a7100d3ac6aea1161901f725424f83486b428a/pysndfile-1.3.7.tar.gz
+     fn: pysndfile-1.3.7.tar.gz
+     sha256: 2c59b7f92b2abd0428b6471a1ce20891792bf12ff57e565cacd008082cdef2a8
      
    - url: http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.28.tar.gz
      fn: libsndfile-1.0.28.tar.gz
@@ -33,20 +33,21 @@ build:
 
 requirements:
   build:
-    - python x.x
+    - python {{ python }}
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - setuptools
     - cython
     - numpy >=1.13.0
   host:
-    - python x.x
+    - python {{ python }}
     - setuptools
+    # cython is required on the host system just to be able to run setup.py which imports Cython  
     - cython
     - numpy >=1.13.0
 
   run:
-    - python x.x
+    - python {{ python }}
     - numpy >=1.13.0
 
 
