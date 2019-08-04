@@ -1,6 +1,8 @@
 #!/bin/bash
 
-$PYTHON setup.py build_ext
+# use python from build environement for building
+# and python from host environment for installing
+python setup.py build_ext
 $PYTHON setup.py install 
 
 # Add more build steps here, if they are necessary.
