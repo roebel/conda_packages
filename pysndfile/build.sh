@@ -1,10 +1,23 @@
 #!/bin/bash
 
-#curl http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.28.tar.gz -o libsndfile-1.0.28.tar.gz
-#tar -xvzf libsndfile-1.0.28.tar.gz
-#cd libsndfile-1.0.28
-cd libsndfile-src
-./configure --disable-external-libs --prefix=$PREFIX
+
+cd libogg-src
+./configure  --prefix=$PREFIX
+make
+make install
+
+cd ../libvorbis-src
+./configure  --prefix=$PREFIX
+make
+make install
+
+cd ../libflac-src
+./configure  --prefix=$PREFIX
+make
+make install
+
+cd ../libsndfile-src
+./configure  --prefix=$PREFIX
 make
 make install
 cd ..

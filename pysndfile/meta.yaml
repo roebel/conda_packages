@@ -1,12 +1,25 @@
 package:
   name: pysndfile
-  version: "1.3.7"
+  version: "1.4.3"
 
 source:
-   - url: https://files.pythonhosted.org/packages/06/f5/7266cc792b04e1519cd4e2a7100d3ac6aea1161901f725424f83486b428a/pysndfile-1.3.7.tar.gz
-     fn: pysndfile-1.3.7.tar.gz
-     sha256: 2c59b7f92b2abd0428b6471a1ce20891792bf12ff57e565cacd008082cdef2a8
-     
+   - url: https://files.pythonhosted.org/packages/00/31/26b53dc479b8330b2c2bb63d87085dfab8cc7932db9330414d860ad0f635/pysndfile-1.4.3.tar.gz
+     fn: pysndfile-1.4.3.tar.gz
+     sha256: 1ee72f8ade9d86842e94ad5cc5b0e41ad1eca8cee2b5889af8b0123a0016f901
+   - url: http://downloads.xiph.org/releases/flac/flac-1.3.2.tar.xz
+     fn: flac-1.3.2.tar.xz
+     sha256: 91cfc3ed61dc40f47f050a109b08610667d73477af6ef36dcad31c31a4a8d53f
+     folder: libflac-src
+   - url: http://downloads.xiph.org/releases/ogg/libogg-1.3.4.tar.xz
+     fn: libogg-1.3.4.tar.xz
+     sha256: c163bc12bc300c401b6aa35907ac682671ea376f13ae0969a220f7ddf71893fe
+     folder: libogg-src
+     patches:
+        - ogg_os_types.h.patch
+   - url: http://downloads.xiph.org/releases/vorbis/libvorbis-1.3.6.tar.xz
+     fn: libvorbis-1.3.6.tar.xz
+     sha256: af00bb5a784e7c9e69f56823de4637c350643deedaf333d0fa86ecdba6fcb415
+     folder: libvorbis-src
    - url: http://www.mega-nerd.com/libsndfile/files/libsndfile-1.0.28.tar.gz
      fn: libsndfile-1.0.28.tar.gz
      sha256: 1ff33929f042fa333aed1e8923aa628c3ee9e1eb85512686c55092d1e5a9dfa9
@@ -14,7 +27,7 @@ source:
      patches:
         - common.c.patch
         - sfconfig.h.patch
-   # - fix.patch
+        - flac.c.patch
 
 build:
    # noarch_python: True
@@ -29,7 +42,7 @@ build:
    
    # If this is a new build for the same version, increment the build
    # number. If you do not include this key, it defaults to 0.
-   number: 0
+   number: 1
 
 requirements:
   build:
@@ -44,11 +57,13 @@ requirements:
     - setuptools
     # cython is required on the host system just to be able to run setup.py which imports Cython  
     - cython
+    - pkgconfig
     - numpy >=1.13.0
 
   run:
     - python {{ python }}
     - numpy >=1.13.0
+    - pkgconfig
 
 
 test:
