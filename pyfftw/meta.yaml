@@ -1,17 +1,16 @@
 package:
   name: pyfftw
-  version: "0.10.4"
+  version: "0.12.0"
 
 source:
- - url: https://pypi.python.org/packages/c2/2e/b25edc6960fc837e915eb1b38e5f0e3013e32e90aff14a1d0f4556b3d145/pyFFTW-0.10.4.tar.gz
-   md5: 7fb59450308881bb48d9f178947d950e
-   fn: pyFFTW-0.10.4.tar.gz
+ - url: https://files.pythonhosted.org/packages/4b/38/6f9539d274d02fbc3262e2f9a0c9dbac9b53393b3ed935612993f8df54bf/pyFFTW-0.12.0.tar.gz
+   md5: 3bfaeb2fe270a6b9d290e8c24718326f
+   fn: pyFFTW-0.12.0.tar.gz
    
  - url: http://www.fftw.org/fftw-3.3.6-pl2.tar.gz
    fn: fftw-3.3.6-pl2.tar.gz
    folder : fftw-src
  
-
 build:
   # noarch_python: True
   # preserve_egg_dir: True
@@ -26,22 +25,26 @@ build:
 
   # If this is a new build for the same version, increment the build
   # number. If you do not include this key, it defaults to 0.
-  number: 5
+  number: 3
 
 requirements:
   build:
+    - python 
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - setuptools
     - cython
-
+    - nomkl
+    
   host:
-    - python
+    - python {{ python }}
     - numpy {{ numpy }}
-
+    - cython
+    - nomkl
+    
   run:
-    - python
-    - numpy x.x
+    - python {{ python }}
+    - {{ pin_compatible('numpy') }}
 
 test:
   # Python imports, check whether import works

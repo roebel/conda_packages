@@ -1,14 +1,14 @@
 {% set name = "py_find_1st" %}
-{% set version = "1.1.4" %}
+{% set version = "1.1.5" %}
 
 package:
   name: {{ name }}
   version: {{ version }}
 
 source:
-  url: https://files.pythonhosted.org/packages/25/e1/5e274480390df4d2d5b2d46a72ee1abba8de8e883c6f1b32f0c68652880c/{{ name }}-{{ version }}.tar.gz
+  url: https://files.pythonhosted.org/packages/51/94/d29e43472aa4dde37f91b3e1fcdf5f48b722285e54773acd688417184110/{{ name }}-{{ version }}.tar.gz
   fn: {{ name }}-{{ version }}.tar.gz
-  sha256: 5e2f406f5f5b54e57f8eb0bd4d364739962cf1c9e3b81110ce654fad37935ef3
+  sha256: f99207bc83df361c4cd9c6c2aaf504907ffce7fdd33ae3d3cbf39c68a4f1c1a9
 
 build:
   # noarch_python: True
@@ -31,18 +31,18 @@ requirements:
     - {{ compiler('c') }}
     - {{ compiler('cxx') }}
     - python {{ python }}
+    - numpy {{ numpy }}
     - future
-    - numpy >=1.13.0
     - setuptools
 
   host:
     - python {{ python }}
-    - numpy >=1.13.0
+    - numpy {{ numpy }}
     - setuptools
-    
+   
   run:
     - python {{ python }}
-    - numpy >=1.13.0
+    - {{ pin_compatible('numpy') }}
 
 test:
   # Python imports

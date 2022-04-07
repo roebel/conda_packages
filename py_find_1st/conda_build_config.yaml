@@ -1,10 +1,18 @@
-#numpy:
-#    - 1.13
-#    - 1.14
-#    - 1.15
-#    - 1.16
-#    - 1.17
-
+# for this to work reliably we need to pair the oldest supprted numpy for each python version. See https://github.com/scipy/oldest-supported-numpy/blob/main/setup.cfg
+numpy:
+    - 1.14
+    - 1.14
+    - 1.17
+    - 1.19
+    - 1.21
+    
 python:
     - 3.6
     - 3.7
+    - 3.8
+    - 3.9
+    - 3.10
+
+zip_keys:
+    - python
+    - numpy

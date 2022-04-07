@@ -1,6 +1,5 @@
 #! /bin/bash
 
-svn checkout  svn://svn.code.sf.net/p/sdif/code/trunk/Easdif EASDIF_SDIF
 
 echo $CONDA_NPY
 mkdir -p build_easdif
@@ -11,7 +10,7 @@ if [ $(uname) = "Linux" ]; then
 fi
 cmake ../EASDIF_SDIF -DPYTHON:PATH=${PYTHON}3 -DEASDIF_DO_PYTHON:bool=on
 
-make pythonswig
+make pythonswig -j3
 make install_python_easdif_module_globally
 #cd ..
 #rm -f *~
